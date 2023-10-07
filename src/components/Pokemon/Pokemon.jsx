@@ -1,30 +1,18 @@
 import React from 'react'
 
-/**
- * import './pokemon.css'
+ import './pokemon.css'
 
-const Pokemon = ({name,image}) => {
+const Pokemon = ({name, image}) => {
   return (
-    <div>
-        <div>{name}</div>
-        <div><img src = {image} /></div>
-        <div>{type}</div>
+    <div className='pokemon'>
+        <div className='pokemon_name'>{name}</div>
+        <div>
+          <img className="pokemon-img" src = {image} />
+          </div>
     </div>
 
   )
 }
 
 export default Pokemon
- * 
- */
 
-function Pokemon({name, image}){
-  return(
-    <div>
-      <div>{name}</div>
-      <div><img src = {image}/></div>
-      
-    </div>
-  )
-}
-export default Pokemon
