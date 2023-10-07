@@ -9,10 +9,14 @@ const PokemonList = () => {
   const [pokemonList, setPokemonList]= useState([]);
   const[isLoading,setIsLoading]= useState(true);
 
-  const POKEDEX_URL = 'https://pokeapi.co/api/v2/pokemon';
+  const [pokedexUrl,setpokedexUrl] = useState('https://pokeapi.co/api/v2/pokemon');
+
+  const [nextUrl, setNextUrl] = useState('');
+  const [prevUrl, setPrevUrl] = useState('');
 
     async function downloadPokemon() {
-     const response = await axios.get(POKEDEX_URL); // this download list of 20 polkemons
+      setIsLoading(true)
+     const response = await axios.get(pokedexUrl); // this download list of 20 polkemons
 
       //console.log(response.data);
       // In above data is used for show api data in browser that why i used data keyword there
@@ -21,6 +25,10 @@ const PokemonList = () => {
       const pokemonResult = response.data.results;   // we get the array of pokemons from result
      
       console.log(response.data);
+
+      setNextUrl(response.data.next);
+      setPrevUrl(response.data.previous);
+
 
       //iterating over the array of pokemons, and using their url, to create an array of promises
       // that will download those 20 pokemons
@@ -55,7 +63,7 @@ const PokemonList = () => {
  
      useEffect(()=>{
       downloadPokemon();      
-    },[]);
+    },[pokedexUrl]);
 
 
   return (
@@ -74,8 +82,8 @@ const PokemonList = () => {
       
       <div className="controls">
         
-        <button>Prev</button>
-        <button>Next</button>
+        <button disabled = {prevUrl==null} onClick={()=> setpokedexUrl(prevUrl)} >Prev</button>
+        <button disabled={nextUrl == null} onClick={()=>setpokedexUrl(nextUrl)}>Next</button>
         
         </div>
 
