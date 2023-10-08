@@ -27,7 +27,8 @@ const PokemonList = () => {
       console.log(response.data);
 
       setNextUrl(response.data.next);
-      setPrevUrl(response.data.previous);
+      setPrevUrl(response.data.previous
+        );
 
 
       //iterating over the array of pokemons, and using their url, to create an array of promises
@@ -74,7 +75,7 @@ const PokemonList = () => {
       <div className="pokemon-wrapper">
 
       {(isLoading) ? 'Loading....' : pokemonList.map((p) =>
-       <Pokemon name ={p.name} image = {p.image} key={p.id} />
+       <Pokemon name ={p.name} image = {p.image} key={p.id} id = {p.id} />
        
        )}
 

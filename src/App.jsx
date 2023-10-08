@@ -1,14 +1,19 @@
-
+import { Link } from 'react-router-dom';
 import './App.css'
 import Pokedex from './components/Pokedex/Pokedex'
+import CustomRoutes from './routes/CustomRoutes'
 
 function App() {
 
   return (
-   <>
-   <Pokedex/>
+   <div className="Outer-Pokedex">
+   <h1 id="pokedex-heading">
+    <Link to="/">Pokedex</Link>
+    </h1>
+   <CustomRoutes/>
+  
    
-   </>
+   </div>
   )
 }
 
