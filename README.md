@@ -1,4 +1,4 @@
-successfully created pokedex Project using pokeApi using the mordern concept like debouncing and routing and many more here is project link 
+successfully created a pokedex app for pokemons. Using the pokeApi and some mordern concept like debouncing and routing and many more here is project link.... 
 https://6537de67f37ea507bf20b0da--spontaneous-belekoy-ce54c2.netlify.app/
 
 
